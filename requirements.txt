@@ -1,0 +1,19 @@
+# Core data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Google Trends
+pytrends>=4.9.2
+
+# Flight data (OpenSky)
+python-opensky>=1.0.1
+
+# Hopsworkoos Feature Store
+hopsworks>=3.7.0
+hsfs>=3.7.0
+
+# Kafka client required by Hopsworks
+confluent-kafka>=2.3.0
+
+# OpenSky 
+python-opensky
