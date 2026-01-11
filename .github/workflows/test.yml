@@ -1,4 +1,4 @@
-name: Daily inference + deploy site
+name: test
 
 on:
   schedule:
