@@ -41,15 +41,22 @@ jobs:
       - name: Run inference pipeline
         run: ipython pipelines/inference_pipeline.ipynb
 
+      - name: Copy predictions into site
+        run: |
+          test -f pipelines/data/predictions.csv
+          mkdir -p site/data
+          cp pipelines/data/predictions.csv site/data/predictions.csv
+
+      # OPTIONAL: only keep if you truly want predictions committed to git
       - name: Commit updated predictions
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add pipelines/data/predictions.csv
-          git commit -m "Daily prediction update" || echo "No changes"
-          git push
+           git config user.name "github-actions"
+           git config user.email "actions@github.com"
+           git add pipelines/data/predictions.csv
+           git commit -m "Daily prediction update" || echo "No changes"
+           git pull --rebase
+           git push --force-with-lease
 
-      # --- Deploy ./site to GitHub Pages ---
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
