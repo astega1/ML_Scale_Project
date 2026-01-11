@@ -35,9 +35,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run feature pipeline
-        run: ipython pipelines/tourism_feature_pipeline.ipynb
-
       - name: Run inference pipeline
         run: ipython pipelines/inference_pipeline.ipynb
 
